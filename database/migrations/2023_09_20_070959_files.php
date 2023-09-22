@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('deposits', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reservation_id')->constrained()->cascadeOnDelete();
-            $table->integer('value');
-            $table->timestamp('date_to_refund')->nullable();
-            $table->string('status', 50);
+            $table->string('object_type', 50);
+            $table->bigInteger('object_id')->unsigned();
+            $table->string('file_type', 50);
+            $table->string('file');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('deposits');
+        Schema::dropIfExists('files');
     }
 };

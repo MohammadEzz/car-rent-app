@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('weekly')->nullable();
             $table->integer('monthly')->nullable();
             $table->integer('yearly')->nullable();
-            $table->foreignId('car_id')->constrained();
+            $table->foreignId('car_id')->constrained()->cascadeOnDelete();
         });
     }
 

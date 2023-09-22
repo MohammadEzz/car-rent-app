@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('car_id')->constrained();
             $table->string('reservation_type', 50);
-            $table->integer('reservation_type_value')->unsigned();
             $table->tinyInteger('discount_value(%)')->unsigned();
             $table->tinyInteger('extra_discount_value(%)')->unsigned()->default(0);
             $table->string('discount_aggregration_type', 50);

@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('options', function (Blueprint $table) {
+        Schema::create('extra_features', function (Blueprint $table) {
             $table->id();
-            $table->string('option_type');
-            $table->string('option_value');
-            $table->bigInteger('parent')->unsigned()->default(0);
+            $table->foreignId('car_id')->constrained('cars')->cascadeOnDelete();
+            $table->string('feature', 100)->index('extra_feature_index');
             $table->string('group', 50)->nullable();
             $table->string('icon')->nullable();
-            $table->boolean('editable')->default(false);
-            $table->boolean('deletable')->default(true);
-            $table->boolean('visible')->default(true);
+            $table->boolean('featured')->default(false);
             $table->smallInteger('order')->unsigned()->default(0);
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('options');
+        Schema::dropIfExists('extra_features');
     }
 };

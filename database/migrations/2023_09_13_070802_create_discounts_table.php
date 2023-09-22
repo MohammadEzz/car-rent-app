@@ -18,7 +18,7 @@ return new class extends Migration
             $table->tinyInteger('weekly(%)')->unsigned()->default(0);
             $table->tinyInteger('monthly(%)')->unsigned()->default(0);
             $table->tinyInteger('yearly(%)')->unsigned()->default(0);
-            $table->foreignId('car_id')->constrained();
+            $table->foreignId('car_id')->constrained()->cascadeOnDelete();;
         });
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Deposit extends Model
+class ExtraFeature extends Model
 {
     use HasFactory;
 
@@ -14,8 +14,8 @@ class Deposit extends Model
 
     public $timestamps = false;
 
-    public function reservation(): BelongsTo
+    public function car(): BelongsTo
     {
-        return $this->belongsTo(Reservation::class);
+        return $this->belongsTo(Car::class);
     }
 }
