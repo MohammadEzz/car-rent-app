@@ -16,9 +16,12 @@ return new class extends Migration
             $table->string('option_type');
             $table->string('option_value');
             $table->bigInteger('parent')->unsigned()->default(0);
+            $table->string('group', 50)->nullable();
+            $table->string('icon')->nullable();
             $table->boolean('editable')->default(false);
+            $table->boolean('deletable')->default(true);
             $table->boolean('visible')->default(true);
-            $table->smallInteger('order')->unsigned()->nullable();
+            $table->smallInteger('order')->unsigned()->default(0);
         });
     }
 

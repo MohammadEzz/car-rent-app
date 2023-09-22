@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('deposit_values', function (Blueprint $table) {
             $table->id();
             $table->integer('value');
-            $table->foreignId('car_id')->constrained();
+            $table->foreignId('car_id')->constrained()->cascadeOnDelete();;
         });
     }
 

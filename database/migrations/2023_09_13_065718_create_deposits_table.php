@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reservation_id')->constrained();
+            $table->foreignId('reservation_id')->constrained()->cascadeOnDelete();
             $table->integer('value');
             $table->timestamp('date_to_refund')->nullable();
             $table->string('status', 50);

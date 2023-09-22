@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('object_type');
-            $table->bigInteger('object_id');
+            $table->bigInteger('object_id')->unsigned();
             $table->text('location');
         });
     }
